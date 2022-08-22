@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+import string as s
+
+alphabet = s.ascii_letters[0:26]
+
+firstHalf = alphabet[0:13]
+secondHalf = alphabet[13:]
+firstString, secondString = {}, {}
+
+for i in range(len(firstHalf)):
+    firstString[i] = firstHalf[i]
+
+for i in range(len(secondHalf)):
+    secondString[i] = secondHalf[i]
+
+inpt = input("Enter a string: ")
+
+string = ""
+
+for i in range(len(inpt)):
+    char = str(inpt[i]).lower()
+    if char == " ":
+        string += " "
+    elif alphabet.index(char) < 13:
+        string += secondHalf[firstHalf.index(char)]
+    elif alphabet.index(char) > 13:
+        string += firstHalf[secondHalf.index(char)]
+
+print(string)
